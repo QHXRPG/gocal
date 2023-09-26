@@ -3,7 +3,6 @@
 #
 #
 ## calcultools
-##
 ### Add2DFloat32 二维矩阵加法
 ### Add2DFloat32Int 二维矩阵与整型加法
 ### Div2DFloat32 二维矩阵除法
@@ -32,7 +31,6 @@
 #
 #
 ## imagetools
-##
 ### GetImageInfo 读取图像信息
 ### ShowImage 小窗口显示图像数据Mat
 ### ReadImage 读取图像为Mat
@@ -49,7 +47,6 @@
 ### ExtractOnPatches
 #
 ## typetrans
-##
 ### Make2DZeroFloat32创建二维矩阵
 ### Make2DZeroFloat64
 ### Uint8ToBytes uint8转bytes
