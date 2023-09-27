@@ -70,8 +70,8 @@ func Mul2DFloat32(a [][]float32, b [][]float32) [][]float32 {
 	bRows := len(b)
 	bCols := len(b[0])
 	if aCols != bRows {
-		// 矩阵无法相乘，返回空矩阵
-		return [][]float32{}
+		// 矩阵无法相乘
+		panic("矩阵无法相乘")
 	}
 	c := typetrans.Make2DZeroFloat32(aRows, bCols)
 	for i := 0; i < aRows; i++ {
