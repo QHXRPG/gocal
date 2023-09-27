@@ -64,36 +64,29 @@ func Sub2DFloat32(a [][]float32, b [][]float32) [][]float32 {
 	return c
 }
 
-func Mul2DFloat32(matrix1 [][]float32, matrix2 [][]float32) [][]float32 {
-	numRows1 := len(matrix1)
-	numCols1 := len(matrix1[0])
-	numRows2 := len(matrix2)
-	numCols2 := len(matrix2[0])
-
-	if numCols1 != numRows2 {
+func Mul2DFloat32(a [][]float32, b [][]float32) [][]float32 {
+	aRows := len(a)
+	aCols := len(a[0])
+	bRows := len(b)
+	bCols := len(b[0])
+	if aCols != bRows {
 		// 矩阵无法相乘，返回空矩阵
 		return [][]float32{}
 	}
-
-	result := make([][]float32, numRows1)
-	for i := range result {
-		result[i] = make([]float32, numCols2)
-	}
-
-	for i := 0; i < numRows1; i++ {
-		for j := 0; j < numCols2; j++ {
-			for k := 0; k < numCols1; k++ {
-				result[i][j] += matrix1[i][k] * matrix2[k][j]
+	c := typetrans.Make2DZeroFloat32(aRows, bCols)
+	for i := 0; i < aRows; i++ {
+		for j := 0; j < bCols; j++ {
+			for k := 0; k < aCols; k++ {
+				c[i][j] += a[i][k] * b[k][j]
 			}
 		}
 	}
-
-	return result
+	return c
 }
 
 func Sub1DFloat32Float32(a []float32, b float32) []float32 {
 	for i := 0; i < len(a); i++ {
-		a[i] = a[i] + b
+		a[i] = a[i] - b
 	}
 	return a
 }
